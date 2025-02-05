@@ -9,8 +9,8 @@
     "start": "wrangler dev",
     "typecheck": "react-router typegen && tsc -b",
     "typegen": "wrangler types",
-    "drizzle:generate": "drizzle-kit generate",
-    "drizzle:migrate": "drizzle-kit migrate"
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "supabase migration up"
   },
   "dependencies": {
     "@react-router/node": "^7.1.5",
