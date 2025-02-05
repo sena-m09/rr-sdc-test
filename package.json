@@ -8,7 +8,9 @@
     "dev": "react-router dev",
     "start": "wrangler dev",
     "typecheck": "react-router typegen && tsc -b",
-    "typegen": "wrangler types"
+    "typegen": "wrangler types",
+    "drizzle:generate": "drizzle-kit generate:pg",
+    "drizzle:migrate": "drizzle-kit migrate:pg"
   },
   "dependencies": {
     "@react-router/node": "^7.1.5",
