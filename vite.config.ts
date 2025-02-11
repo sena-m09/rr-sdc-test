@@ -3,8 +3,9 @@ import { cloudflareDevProxy } from "@react-router/dev/vite/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import path from 'path';
 
-export default defineConfig(({ isSsrBuild }) => ({
+export default defineConfig(({ isSsrBuild, mode }) => ({
   build: {
     rollupOptions: isSsrBuild
       ? {
@@ -22,4 +23,9 @@ export default defineConfig(({ isSsrBuild }) => ({
     reactRouter(),
     tsconfigPaths(),
   ],
+  resolve: {
+    alias: {
+      ...(mode === 'development' && { 'postgres': path.resolve(__dirname, 'node_modules/postgres/src/index.js') })
+    }
+  },
 }));
